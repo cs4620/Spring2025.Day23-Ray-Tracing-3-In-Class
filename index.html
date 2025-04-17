@@ -126,7 +126,8 @@
                 arrivingLight = add(arrivingLight, lightColor)
             }
 
-            return elementWise(arrivingLight, diffuseColor)
+            let color = elementWise(arrivingLight, diffuseColor)
+            return arrayToColor(color)
 
         }
 
@@ -211,7 +212,7 @@
 
             if (!nearestSpec) return undefined
 
-            return { N:nearestN, P:nearestP, T:nearestDistance, spec:nearestSpec }
+            return { N:normalize(nearestN), P:nearestP, T:nearestDistance, spec:nearestSpec }
         }
 
 
