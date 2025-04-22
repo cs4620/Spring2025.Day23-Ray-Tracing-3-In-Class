@@ -164,7 +164,7 @@
 
                 //Check if each dot product has a positive Z. If it does, then we are inside the triangle
                 if (dot(N, c0) <= 0 && dot(N, c1) <= 0 && dot(N, c2) <= 0) {
-                    if (nearestDistance < T) continue
+                    if (nearestDistance < T || T < 0) continue
                     nearestDistance = T
                     nearestN = N
                     nearestP = P
@@ -186,8 +186,8 @@
                 }
 
                 let T
-                let T0 = -B - Math.sqrt(discriminant)
-                let T1 = -B + Math.sqrt(discriminant)
+                let T0 = (-B - Math.sqrt(discriminant))/2
+                let T1 = (-B + Math.sqrt(discriminant))/2
                 if (T0 > 0) {
                     T = T0
                 }
